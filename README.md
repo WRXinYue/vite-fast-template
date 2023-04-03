@@ -7,7 +7,7 @@
 <br>
 
 <p align='center'>
-<b>English</b> | <a href="https://github.com/nekobc1998923/vitecamp/blob/master/README.zh-CN.md">简体中文</a>
+<b>English</b> | <a href="./README.zh-CN.md">简体中文</a>
 </p>
 
 <br>
