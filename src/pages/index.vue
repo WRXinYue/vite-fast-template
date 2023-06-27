@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useUserStore } from '~/store/user'
-
 defineOptions({
   name: 'IndexPage',
 })
@@ -50,10 +48,6 @@ const { t } = useI18n()
       </button>
     </div>
   </div>
-
-  <RouterLink to="users/">
-    About
-  </RouterLink>
 </template>
 
 <route lang="yaml">

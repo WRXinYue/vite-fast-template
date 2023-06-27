@@ -41,14 +41,7 @@ declare module 'vue-router/auto/routes' {
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/[...all]': RouteRecordInfo<'/[...all]', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
-    '/example/MarkdownPage': RouteRecordInfo<'/example/MarkdownPage', '/example/MarkdownPage', Record<never, never>, Record<never, never>>,
-    '/exception/401': RouteRecordInfo<'/exception/401', '/exception/401', Record<never, never>, Record<never, never>>,
-    '/exception/404': RouteRecordInfo<'/exception/404', '/exception/404', Record<never, never>, Record<never, never>>,
     '/hi/[name]': RouteRecordInfo<'/hi/[name]', '/hi/:name', { name: ParamValue<true> }, { name: ParamValue<false> }>,
-    '/users': RouteRecordInfo<'/users', '/users', Record<never, never>, Record<never, never>>,
-    '/users/': RouteRecordInfo<'/users/', '/users', Record<never, never>, Record<never, never>>,
-    '/users/[id]': RouteRecordInfo<'/users/[id]', '/users/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
-    '/users/my-[id]-param': RouteRecordInfo<'/users/my-[id]-param', '/users/my-:id-param', { id: ParamValue<true> }, { id: ParamValue<false> }>,
   }
 }
 
