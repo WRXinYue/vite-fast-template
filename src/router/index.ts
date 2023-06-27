@@ -1,5 +1,7 @@
 import type { RouteRecordRaw, Router } from 'vue-router'
-import { createRouter, createWebHistory } from 'vue-router'
+
+// import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router/auto'
 import NProgress from 'nprogress'
 import exceptionRoutes from '~/router/route.exception'
 import asyncRoutes from '~/router/route.async'
@@ -17,6 +19,8 @@ const routes: Array<RouteRecordRaw> = [
 const router: Router = createRouter({
   // 新的vue-router4 使用 history路由模式 和 base前缀
   history: createWebHistory(import.meta.env.VITE_BASE),
+  // You don't need to pass the routes anymore,
+  // the plugin writes it for you 🤖
   routes,
 })
 

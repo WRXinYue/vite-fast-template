@@ -55,6 +55,7 @@
 - [vite-plugin-fonts](https://github.com/stafyniaksacha/vite-plugin-fonts) - Vite 的字体加载器
 - [VueUse](https://github.com/antfu/vueuse) - 实用的 Composition API 工具合集
 - [vite-svg-loader](https://github.com/jpkleemans/vite-svg-loader) - 支持以 组件形式使用 SVG 图片
+- [unplugin-vue-router](https://github.com/posva/unplugin-vue-router)
 
 ### Commitizen 相关工具
 
@@ -141,3 +142,4 @@ pnpm run build
 
 - https://github.com/nekobc1998923/vitecamp
 - https://github.com/antfu/vitesse
+
