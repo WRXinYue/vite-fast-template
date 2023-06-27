@@ -1,13 +1,11 @@
 import type { RouteRecordRaw, Router } from 'vue-router'
-
-// import { createRouter, createWebHistory } from 'vue-router'
-import { createRouter, createWebHistory } from 'vue-router/auto'
+import { createRouter, createWebHistory } from 'vue-router'
 import NProgress from 'nprogress'
 import exceptionRoutes from '~/router/route.exception'
 import asyncRoutes from '~/router/route.async'
 import commonRoutes from '~/router/route.common'
 
-const routes: Array<RouteRecordRaw> = [
+export const routes: Array<RouteRecordRaw> = [
   // 无鉴权的业务路由 ex:登录
   ...commonRoutes,
   // 带鉴权的业务路由
