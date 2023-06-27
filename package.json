@@ -25,7 +25,7 @@
     "vue-router": "^4.1.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.1.0",
+    "@commitlint/cli": "^16.3.0",
     "@commitlint/config-conventional": "^17.6.6",
     "@iconify/json": "^2.0.29",
     "@intlify/vite-plugin-vue-i18n": "^6.0.0",

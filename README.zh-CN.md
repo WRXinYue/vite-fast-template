@@ -22,9 +22,6 @@
 - 📑 [Markdown 支持](https://github.com/antfu/vite-plugin-md) - 随意的在页面中嵌入 Markdown
 - 🔑 完整支持的代码风格规范和代码提交规范
 - ☁️ 支持零配置部署 Netlify
-- cz-conventional-changelog
-- Commitizen=>自动生成提交说明的工具
-- Cz-customizable=> 客制化自动提交信息
 
 ## 已配置
 
@@ -57,9 +54,23 @@
 - [VueUse](https://github.com/antfu/vueuse) - 实用的 Composition API 工具合集
 - [vite-svg-loader](https://github.com/jpkleemans/vite-svg-loader) - 支持以 组件形式使用 SVG 图片
 
+### Commitizen 相关工具
+
+- commitizen - 提供规范化的提交消息格式和交互式提交流程的命令行工具。
+- cz-customizable - 可定制的 Commitizen 适配器，允许根据项目需求自定义提交类型、作用域等。
+
+### Commitlint 相关工具
+
+- commitlint - 用于校验提交消息是否符合规范的工具。
+- @commitlint/config-conventional - 提供符合 Angular 风格的提交消息校验规则。
+
 ### 编码风格
 
 - [ESLint](https://eslint.org/) 配置为 [Airbnb Style](https://github.com/airbnb/javascript)
+
+### 规范
+
+- [Angular 约定](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
 
 ### 开发工具
 
