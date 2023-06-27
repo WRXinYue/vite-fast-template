@@ -1,6 +1,7 @@
-node_modules
-.DS_Store
-dist
-dist-ssr
-*.local
-*.d.ts
+# Add files here to ignore them from prettier formatting
+package.json
+package-lock.json
+/coverage
+/dist
+/docs
+/node_modules
