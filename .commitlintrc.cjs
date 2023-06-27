@@ -7,6 +7,6 @@ module.exports = {
       ['init', 'build', 'ci', 'chore', 'docs', 'feat', 'fix', 'perf', 'refactor', 'revert', 'style', 'test'],
     ],
     'subject-case': [2, 'always', 'sentence-case'],
-    'body-max-line-length': [2, 'always', 100],
+    'body-max-line-length': [2, 'always', 200],
   },
 };

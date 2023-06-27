@@ -1,5 +1,5 @@
 {
-  "type": "commonjs",
+  "type": "module",
   "private": true,
   "packageManager": "pnpm@8.5.1",
   "scripts": {
