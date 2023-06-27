@@ -1,82 +1,59 @@
 {
   "types": [
     {
-      "value": "build",
-      "name": "👷 build:    Changes that affect the build system or dependencies"
-    },
-    {
-      "value": "ci",
-      "name": "💻 ci:       Changes to our CI configuration files and scripts"
-    },
-    {
-      "value": "docs",
-      "name": "📖 docs:     Documentation only changes"
-    },
-    {
       "value": "feat",
-      "name": "✨ feat:     New feature [minor version: 0.v.0]"
+      "name": "✨ feat:       新增一个新功能"
     },
     {
       "value": "fix",
-      "name": "🐛 fix:      Bug fix [patch version: 0.0.v]"
+      "name": "🐛 fix:        修复一个Bug"
     },
     {
-      "value": "perf",
-      "name": "📈 perf:     Change that improves performance"
+      "value": "docs",
+      "name": "📝 docs:       文档变更"
+    },
+    {
+      "value": "style",
+      "name": "💄 style:      代码格式（不影响功能，例如空格、分号等格式修正）"
     },
     {
       "value": "refactor",
-      "name": "🏗  refactor: Change that neither fixes a bug nor adds a feature"
+      "name": "♻️  refactor:   重构 (既不增加feature, 也不是修复bug)"
     },
     {
-      "value": "release",
-      "name": "🚀 release:  A new project version"
+      "value": "chore",
+      "name": "🔧 chore:      构建过程或辅助工具的变动"
     },
     {
       "value": "revert",
-      "name": "🔥 revert:   Revert, must contains reverted commit header"
+      "name": "⏪ revert:     撤销，版本回退"
+    },
+    {
+      "value": "perf",
+      "name": "⚡️ perf:       性能优化"
     },
     {
       "value": "test",
-      "name": "🚨 test:     Adding missing tests or correcting existing tests"
+      "name": "✅ test:       增加测试"
+    },
+    {
+      "value": "build",
+      "name": "🚀 build:      打包"
     }
   ],
-
   "allowTicketNumber": false,
   "isTicketNumberRequired": false,
-  "ticketNumberPrefix": "",
-  "ticketNumberRegExp": "#\\d{1,5}",
-
+  "ticketNumberPrefix": "#",
+  "ticketNumberRegExp": "\\d{1,5}",
   "messages": {
-    "type": "Select the type of change that you're committing:\n",
-    "scope": "Denote the scope of this change (optional):\n",
-    "customScope": "What is the scope of this change: <press enter to skip>\n",
-    "ticketNumber": "Enter the ticket number (e.g. #42): <press enter to skip>\n",
-    "subject": "Write a short, imperative tense description of the change (max 80 chars):\n",
-    "body": "Provide a long description of the change (Use \"|\" to break new line): <press enter to skip>\n",
-    "breaking": "List with commas any breaking changes [major version: V.0.0]: <press enter to skip>\n",
-    "footer": "List with commas any affected open issues (e.g. #42, #43): <press enter to skip>\n",
-    "confirmCommit": "Are you sure you want to proceed with the commit above?"
+    "type": "请选择提交的类型：",
+    "customScope": "情输入修改的范围(可选)",
+    "subject": "请简要描述提交(必填)",
+    "body": "请输入详细描述(可选)",
+    "footer": "请输入要关闭的issus(可选)",
+    "confirmCommit": "确认要使用以上信息提交？(y/n)"
   },
-
-  "scopeOverrides": {
-    "build": [],
-    "ci": [],
-    "feat": [],
-    "fix": [],
-    "perf": [],
-    "refactor": [],
-    "revert": [],
-    "test": []
-  },
-
-  "appendBranchNameToCommitMessage": true,
   "allowCustomScopes": true,
-  "askForBreakingChangeFirst": false,
   "allowBreakingChanges": ["feat", "fix"],
-  "skipQuestions": [],
-  "subjectLimit": 80,
-  "breaklineChar": "|",
-  "breakingPrefix": "BREAKING CHANGE:",
-  "footerPrefix": "fixes"
+  "subjectLimit": 72
 }
