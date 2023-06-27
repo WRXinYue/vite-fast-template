@@ -1,50 +1,57 @@
 'use strict';
 
+console.info('>>> local config in repo: ', __dirname);
+
 module.exports = {
   types: [
     {
-      value: ':sparkles: feat',
-      name: '✨ feat:      新功能'
+      value: 'feat',
+      name: '✨ feat:       新增一个新功能'
     },
     {
-      value: ':bug: fix',
-      name: '🐛 fix:      修复'
+      value: 'fix',
+      name: '🐛 fix:        修复一个Bug'
     },
     {
-      value: ':memo: docs',
-      name: '📝 docs:      文档变更'
+      value: 'docs',
+      name: '📝 docs:       文档变更'
     },
     {
-      value: ':lipstick: style',
-
-      name: '💄 style:     代码格式(不影响代码运行的变动)'
+      value: 'style',
+      name: '💄 style:      代码格式（不影响功能，例如空格、分号等格式修正）'
     },
     {
-      value: ':recycle: refactor',
-
-      name: '♻️  refactor:    重构 (既不增加feature, 也不是修复bug)'
+      value: 'refactor',
+      name: '♻️  refactor:   重构 (既不增加feature, 也不是修复bug)'
     },
     {
-      value: ':zap: perf',
-      name: '⚡️ perf:      性能优化'
+      value: 'chore',
+      name: '🔧 chore:      构建过程或辅助工具的变动'
     },
     {
-      value: ':white_check_mark: test',
-      name: '✅ test:      增加测试'
+      value: 'revert',
+      name: '⏪ revert:     撤销，版本回退'
     },
     {
-      value: ':wrench: chore',
-      name: '🔧 chore:     构建过程或辅助工具的变动'
+      value: 'perf',
+      name: '⚡️ perf:       性能优化'
     },
     {
-      value: ':rewind: revert',
-      name: '⏪ revert:     回退'
+      value: 'test',
+      name: '✅ test:       增加测试'
     },
     {
-      value: ':rocket: build',
-      name: '🚀 build:     打包'
-    }
+      value: 'build',
+      name: '🚀 build:      打包'
+    },
   ],
+
+  scopes: [{ name: 'accounts', name: 'admin', name: 'exampleScope', name: 'changeMe' }],
+  allowTicketNumber: false,
+  isTicketNumberRequired: false,
+  ticketNumberPrefix: '#',
+  ticketNumberRegExp: '\\d{1,5}',
+
 
   // override the messages, defaults are as follows
   messages: {

@@ -1,12 +1,6 @@
 <br>
 
 <p align='center'>
-<a href="https://vitecamp.netlify.app/">Live Demo</a>
-</p>
-
-<br>
-
-<p align='center'>
 <b>English</b> | <a href="./README.zh-CN.md">简体中文</a>
 </p>
 
