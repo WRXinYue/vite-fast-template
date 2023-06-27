@@ -6,7 +6,6 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "EditorConfig.EditorConfig",
-    "voorjaar.windicss-intellisense",
     "csstools.postcss"
   ]
 }

@@ -1,8 +1,12 @@
 <br>
 
 <p align='center'>
-<a href="./README.en.md">English</a> | <b>简体中文</b>
+<a href="./README.en.md">简体中文</a> | <b>English</b>
 </p>
+
+## 前言
+
+根据源仓库进行修改更新，旨在不断迭代和更新新的技术栈和体系来体验新型技术。
 
 ## 特性
 
@@ -10,11 +14,12 @@
 - 💪 [Typescript](https://www.typescriptlang.org/) - 当然！必不可少
 - 🎉 [Element Plus 开箱即用](https://github.com/element-plus/element-plus) - 基于 Vue.js 3 的强大 UI 库
 - 🔥 [Axios 配置和封装](https://github.com/axios/axios) - 基于 Promise 的 HTTP 请求库
+- 🔥 使用 [新的 `<script setup>` 语法](https://github.com/vuejs/rfcs/pull/227)
 - 💡 [Vue Router 4](https://router.vuejs.org/zh/) - Vuejs 的官方路由
 - 📦 [组件自动按需加载](https://github.com/antfu/unplugin-vue-components) - 自动按需注册组件, 无需 import
 - 📥 [API 自动按需加载](https://github.com/antfu/unplugin-auto-import) - 无需手动 import 进行引入
 - 🍍 [Pinia 状态管理](https://pinia.esm.dev/) - 你将会喜欢上的 Vue Store
-- 🎨 [Windi CSS](https://github.com/windicss/windicss) - 下一代实用的原子 css 框架
+- 🎨 [UnoCSS](https://github.com/unocss/unocss) - 高性能且极具灵活性的即时原子化 CSS 引擎
 - 😃 [icones](https://github.com/antfu/unplugin-icons) - 强大的图标库，各种图标集为你所用
 - 🌍 [I18n 国际化开箱即用](./locales) - 想要翻译？是的，都可以！
 - 👩‍🎨 [NProgress](https://github.com/rstacruz/nprogress) - 页面加载进度反馈
@@ -27,8 +32,6 @@
 
 ### UI 框架
 
-- [Windi CSS](https://github.com/windicss/windicss) (按需的 [TailwindCSS](https://tailwindcss.com/)) - 更轻，更快和和一系列额外的特性!
-  - [Windi CSS Typography](https://windicss.org/plugins/official/typography.html)
 - [Element Plus](https://github.com/element-plus/element-plus) - 基于 Vue.js 3 的强大 UI 库
 
 ### Icons
@@ -43,7 +46,6 @@
 - [Axios](https://github.com/axios/axios) - 基于 Promise 的 HTTP 请求库
 - [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components) - 自动按需加载组件
 - [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import) - 自动按需加载 API
-- [vite-plugin-windicss](https://github.com/antfu/vite-plugin-windicss) - Windi CSS 的整合
 - [vite-plugin-vue-markdown](https://github.com/antfu/vite-plugin-vue-markdown) - Markdown 作为组件，也可以让组件在 Markdown 中使用
   - [markdown-it-prism](https://github.com/jGleitz/markdown-it-prism) - [Prism](https://prismjs.com/) 的语法高亮
   - [prism-theme-vars](https://github.com/antfu/prism-theme-vars) - 利用 CSS 变量自定义 Prism.js 的主题
@@ -72,6 +74,11 @@
 
 - [Angular 约定](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
 
+### 编码风格
+
+- 使用 Composition API 地 [`<script setup>` SFC 语法](https://github.com/vuejs/rfcs/pull/227)
+- [ESLint](https://eslint.org/) 配置为 [@antfu/eslint-config](https://github.com/antfu/eslint-config), 单引号, 无分号.
+
 ### 开发工具
 
 - [TypeScript](https://www.typescriptlang.org/)
@@ -80,7 +87,6 @@
   - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - Vue 3 IDE 支持
   - [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) - 图标内联显示和自动补全
   - [i18n Ally](https://marketplace.visualstudio.com/items?itemName=lokalise.i18n-ally) - 多合一的 I18n 支持
-  - [Windi CSS 智能感知](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - Windi CSS 的 IDE 支持
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - 代码质量和规则检查
   - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - 专注于代码格式化、美化代码
   - [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - 编码风格检查
@@ -130,3 +136,8 @@ pnpm run build
 ```
 
 然后你会看到用于发布的 `dist` 文件夹被生成。
+
+## 参考
+
+- https://github.com/nekobc1998923/vitecamp
+- https://github.com/antfu/vitesse

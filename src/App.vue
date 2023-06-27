@@ -1,14 +1,31 @@
 <script setup lang="ts">
-import zhCn from 'element-plus/lib/locale/lang/zh-cn';
-
-const locale = zhCn;
+// https://github.com/vueuse/head
+// you can use this to manipulate the document head in any components,
+// they will be rendered correctly in the html results with vite-ssg
+useHead({
+  title: 'Vitesse',
+  meta: [
+    { name: 'description', content: 'Opinionated Vite Starter Template' },
+    {
+      name: 'theme-color',
+      content: () => isDark.value ? '#00aba9' : '#ffffff',
+    },
+  ],
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: () => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg',
+    },
+  ],
+})
 </script>
 
 <template>
   <div class="m-5">
     <el-config-provider :locale="locale">
-      <router-view></router-view>
+      <router-view />
     </el-config-provider>
   </div>
-  <TheFooter></TheFooter>
+  <TheFooter />
 </template>

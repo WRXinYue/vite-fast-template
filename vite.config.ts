@@ -1,64 +1,167 @@
-import { defineConfig, loadEnv } from 'vite';
-import { resolve } from 'path';
-import presets from './presets/presets';
+import path from 'node:path'
+import { defineConfig } from 'vite'
+import Vue from '@vitejs/plugin-vue'
+import Pages from 'vite-plugin-pages'
+import generateSitemap from 'vite-ssg-sitemap'
+import Layouts from 'vite-plugin-vue-layouts'
+import Components from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import Markdown from 'vite-plugin-vue-markdown'
+import { VitePWA } from 'vite-plugin-pwa'
+import VueI18n from '@intlify/unplugin-vue-i18n/vite'
+import VueDevTools from 'vite-plugin-vue-devtools'
+import LinkAttributes from 'markdown-it-link-attributes'
+import Unocss from 'unocss/vite'
+import Shiki from 'markdown-it-shiki'
 
-// https://vitejs.dev/config/
-export default defineConfig((env) => {
-  // env 环境变量
-  const viteEnv = loadEnv(env.mode, process.cwd());
+// @ts-expect-error failed to resolve types
+import VueMacros from 'unplugin-vue-macros/vite'
+import WebfontDownload from 'vite-plugin-webfont-dl'
 
-  return {
-    base: viteEnv.VITE_BASE,
-    // 插件
-    plugins: [presets(env)],
-    // 别名设置
-    resolve: {
-      alias: {
-        '@': resolve(__dirname, './src'), // 把 @ 指向到 src 目录去
-      },
+export default defineConfig({
+  resolve: {
+    alias: {
+      '~/': `${path.resolve(__dirname, 'src')}/`,
     },
-    // 服务设置
-    server: {
-      host: true, // host设置为true才可以使用network的形式，以ip访问项目
-      port: 8080, // 端口号
-      open: true, // 自动打开浏览器
-      cors: true, // 跨域设置允许
-      strictPort: true, // 如果端口已占用直接退出
-      // 接口代理
-      proxy: {
-        '/api': {
-          // 本地 8000 前端代码的接口 代理到 8888 的服务端口
-          target: 'http://localhost:8888/',
-          changeOrigin: true, // 允许跨域
-          rewrite: (path) => path.replace('/api/', '/'),
-        },
+  },
+
+  plugins: [
+    VueMacros({
+      plugins: {
+        vue: Vue({
+          include: [/\.vue$/, /\.md$/],
+        }),
       },
-    },
-    build: {
-      reportCompressedSize: false,
-      // 消除打包大小超过500kb警告
-      chunkSizeWarningLimit: 2000,
-      minify: 'esbuild',
-      assetsDir: 'static/assets',
-      // 静态资源打包到dist下的不同目录
-      rollupOptions: {
-        output: {
-          chunkFileNames: 'static/js/[name]-[hash].js',
-          entryFileNames: 'static/js/[name]-[hash].js',
-          assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
-        },
+    }),
+
+    // https://github.com/hannoeru/vite-plugin-pages
+    Pages({
+      extensions: ['vue', 'md'],
+    }),
+
+    // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
+    Layouts(),
+
+    // https://github.com/antfu/unplugin-auto-import
+    AutoImport({
+      imports: [
+        'vue',
+        'vue-router',
+        'vue-i18n',
+        '@vueuse/head',
+        '@vueuse/core',
+      ],
+      dts: 'src/auto-imports.d.ts',
+      dirs: [
+        'src/composables',
+        'src/stores',
+      ],
+      vueTemplate: true,
+    }),
+
+    // https://github.com/antfu/unplugin-vue-components
+    Components({
+      // allow auto load markdown components under `./src/components/`
+      extensions: ['vue', 'md'],
+      // allow auto import and register components used in markdown
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      dts: 'src/components.d.ts',
+    }),
+
+    // https://github.com/antfu/unocss
+    // see uno.config.ts for config
+    Unocss(),
+
+    // https://github.com/antfu/vite-plugin-vue-markdown
+    // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
+    Markdown({
+      wrapperClasses: 'prose prose-sm m-auto text-left',
+      headEnabled: true,
+      markdownItSetup(md) {
+        // https://prismjs.com/
+        md.use(Shiki, {
+          theme: {
+            light: 'vitesse-light',
+            dark: 'vitesse-dark',
+          },
+        })
+        md.use(LinkAttributes, {
+          matcher: (link: string) => /^https?:\/\//.test(link),
+          attrs: {
+            target: '_blank',
+            rel: 'noopener',
+          },
+        })
       },
-    },
-    css: {
-      preprocessorOptions: {
-        // 全局引入了 scss 的文件
-        scss: {
-          additionalData: `
-          @import "@/assets/styles/variables.scss";
-        `,
-          javascriptEnabled: true,
-        },
+    }),
+
+    // https://github.com/antfu/vite-plugin-pwa
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.svg', 'safari-pinned-tab.svg'],
+      manifest: {
+        name: 'Vitesse',
+        short_name: 'Vitesse',
+        theme_color: '#ffffff',
+        icons: [
+          {
+            src: '/pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+          {
+            src: '/pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable',
+          },
+        ],
       },
+    }),
+
+    // https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n
+    VueI18n({
+      runtimeOnly: true,
+      compositionOnly: true,
+      fullInstall: true,
+      include: [path.resolve(__dirname, 'locales/**')],
+    }),
+
+    // https://github.com/feat-agency/vite-plugin-webfont-dl
+    WebfontDownload(),
+
+    // https://github.com/webfansplz/vite-plugin-vue-devtools
+    VueDevTools(),
+  ],
+
+  // https://github.com/vitest-dev/vitest
+  test: {
+    include: ['test/**/*.test.ts'],
+    environment: 'jsdom',
+    deps: {
+      inline: ['@vue', '@vueuse', 'vue-demi'],
     },
-  };
-});
+  },
+
+  // https://github.com/antfu/vite-ssg
+  ssgOptions: {
+    script: 'async',
+    formatting: 'minify',
+    crittersOptions: {
+      reduceInlineStyles: false,
+    },
+    onFinished() {
+      generateSitemap()
+    },
+  },
+
+  ssr: {
+    // TODO: workaround until they support native ESM
+    noExternal: ['workbox-window', /vue-i18n/],
+  },
+})
