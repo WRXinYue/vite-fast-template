@@ -1,16 +1,8 @@
 <br>
 
 <p align='center'>
-<a href="https://vitecamp.netlify.app/">在线 Demo</a>
-</p>
-
-<br>
-
-<p align='center'>
 <a href="./README.md">English</a> | <b>简体中文</b>
 </p>
-
-<br>
 
 ## 特性
 
@@ -30,6 +22,9 @@
 - 📑 [Markdown 支持](https://github.com/antfu/vite-plugin-md) - 随意的在页面中嵌入 Markdown
 - 🔑 完整支持的代码风格规范和代码提交规范
 - ☁️ 支持零配置部署 Netlify
+- cz-conventional-changelog
+- Commitizen=>自动生成提交说明的工具
+- Cz-customizable=> 客制化自动提交信息
 
 ## 已配置
 
