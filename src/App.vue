@@ -22,10 +22,5 @@ useHead({
 </script>
 
 <template>
-  <div class="m-5">
-    <el-config-provider :locale="locale">
-      <router-view />
-    </el-config-provider>
-  </div>
-  <TheFooter />
+  <RouterView />
 </template>

@@ -1,23 +1,29 @@
-// i18n
-import { createI18n } from 'vue-i18n'
+import { ViteSSG } from 'vite-ssg'
+import { setupLayouts } from 'virtual:generated-layouts'
 
 // vue router
 import App from './App.vue'
-import router from '~/router/index'
+import type { UserModule } from './types'
+import generatedRoutes from '~pages'
 
-// pinia
-import store from '~/store'
+import '@unocss/reset/tailwind.css'
+import '~/assets/styles/main.scss'
+import 'uno.css'
 
-import '~/assets/styles/index.scss'
+const routes = setupLayouts(generatedRoutes)
 
-const i18n = createI18n({
-  locale: 'en',
-})
+// const app = createApp(App)
 
-const app = createApp(App)
+// app.use(router).use(store)
 
-app.use(router).use(store)
-
-app.use(i18n)
-
-app.mount('#app')
+// https://github.com/antfu/vite-ssg
+export const createApp = ViteSSG(
+  App,
+  { routes, base: import.meta.env.BASE_URL },
+  (ctx) => {
+    // install all modules under `modules/`
+    Object.values(import.meta.glob<{ install: UserModule }>('./modules/*.ts', { eager: true }))
+      .forEach(i => i.install?.(ctx))
+    // ctx.app.use(Previewer)
+  },
+)

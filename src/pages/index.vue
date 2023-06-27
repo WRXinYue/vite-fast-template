@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useUserStore } from '~/store/user'
+
 defineOptions({
   name: 'IndexPage',
 })

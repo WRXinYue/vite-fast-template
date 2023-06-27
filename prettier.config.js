@@ -26,4 +26,4 @@ module.exports = {
 
   // 是否使用tab格式化： 不使用
   useTabs: false,
-};
+}
