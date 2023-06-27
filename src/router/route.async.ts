@@ -9,7 +9,7 @@ const asyncRoutes: Array<RouteRecordRaw> = [
       title: 'Template configuration process',
       icon: '',
     },
-    component: () => import('~/views/example/MarkdownPage.vue'),
+    component: () => import('~/pages/example/MarkdownPage.vue'),
   },
 ]
 
