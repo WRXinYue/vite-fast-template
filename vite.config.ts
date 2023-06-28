@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 import generateSitemap from 'vite-ssg-sitemap'
+
 import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -19,8 +20,8 @@ import VueMacros from 'unplugin-vue-macros/vite'
 import WebfontDownload from 'vite-plugin-webfont-dl'
 
 // https://github.com/posva/unplugin-vue-router
-import VueRouter from 'unplugin-vue-router/vite'
-import { VueRouterAutoImports } from 'unplugin-vue-router'
+// import VueRouter from 'unplugin-vue-router/vite'
+// import { VueRouterAutoImports } from 'unplugin-vue-router'
 
 export default defineConfig({
   resolve: {
@@ -39,12 +40,13 @@ export default defineConfig({
     }),
 
     // We recommend Vue user using unplugin-vue-router instead of this plugin.
+    // VueRouter({
+    //   /* options */
+    //   extensions: ['vue', 'md'],
+    // }),
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
       extensions: ['vue', 'md'],
-    }),
-    VueRouter({
-      /* options */
     }),
     // ⚠️ Vue must be placed after VueRouter()
 
@@ -55,12 +57,12 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
-        // 'vue-router',
-        VueRouterAutoImports,
-        {
-          // add any other imports you were relying on
-          'vue-router/auto': ['useLink'],
-        },
+        'vue-router',
+        // VueRouterAutoImports,
+        // {
+        //   // add any other imports you were relying on
+        //   'vue-router/auto': ['useLink'],
+        // },
         'vue-i18n',
         '@vueuse/head',
         '@vueuse/core',
